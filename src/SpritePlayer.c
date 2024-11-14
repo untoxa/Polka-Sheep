@@ -1,4 +1,7 @@
 #include "Banks/SetAutoBank.h"
+
+#include <gbdk/platform.h>
+
 #include "main.h"
 
 #include "ZGBMain.h"
@@ -11,7 +14,6 @@
 #include "Scroll.h"
 #include "Sound.h"
 #include "Palette.h"
-#include "gb/cgb.h"
 
 extern const INT8 gravity;
 
@@ -54,7 +56,7 @@ INT16 inmunity = 0;
 
 const UINT8 HEART_TILE = 1;
 const UINT8 EMPTY_HEART_TILE = 2;
-void RefreshLife() BANKED {
+void RefreshLife(void) BANKED {
 	UINT8 i;
 
 	for(i = 0; i != current_energy; ++i) {
@@ -66,7 +68,7 @@ void RefreshLife() BANKED {
 }
 
 void ChangeState(SheepState next);
-void START() {
+void START(void) {
 	THIS->lim_y = 255;
 
 	sheep_state = NONE;
@@ -121,7 +123,7 @@ void ChangeState(SheepState next) {
 	}
 }
 
-void Hit() {
+void Hit(void) {
 	if(inmunity == 0) {
 			PlayFx(CHANNEL_4, 10, 0x0f, 0xf2, 0x64, 0x80);
 			
@@ -140,15 +142,17 @@ extern UINT8 anim_laughing[];
 
 UINT8 current_pal = 0;
 INT8 pal_tick = 0;
-const UINT8 pals[] = {PAL_DEF(0, 1, 2, 3), PAL_DEF(0, 0, 0, 0)};
 
+#ifdef NINTENDO 
+const UINT8 pals[] = {PAL_DEF(0, 1, 2, 3), PAL_DEF(0, 0, 0, 0)};
 #ifdef CGB
 const UINT16 pal_on[]  = {RGB(31, 31, 31), RGB(20, 20, 20), RGB(10, 10, 10), RGB(0,   0,  0)};
 const UINT16 pal_off[] = {RGB(31, 31, 31), RGB(31, 31, 31), RGB(31, 31, 31), RGB(31, 31, 31)};
 const UINT16* pals_color[] = {pal_on, pal_off};
 #endif
+#endif
 
-void UPDATE() {
+void UPDATE(void) {
 	UINT16 expected_x;
 	UINT16 expected_y;
 	UINT8 coll_tile;
@@ -312,16 +316,17 @@ void UPDATE() {
 		if(U_LESS_THAN(pal_tick, 0)) {
 			pal_tick += 3;
 			current_pal ++;
-
+#ifdef NINTENDO
 #ifdef CGB
 			if(_cpu == CGB_TYPE) {
 				SetPalette(SPRITES_PALETTE, 1, 1, pals_color[current_pal % 2], 2);
 			} else
 #endif
 			OBP1_REG = pals[current_pal % 2];
+#endif
 		}
 	}
 }
 
-void DESTROY() {
+void DESTROY(void) {
 }

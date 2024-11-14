@@ -14,7 +14,7 @@ typedef struct {
 	fixed wolf_x_accum;
 } CUSTOM_DATA;
 
-void START() {
+void START(void) {
 	CUSTOM_DATA* data = (CUSTOM_DATA*) THIS->custom_data;
 	data->laughing = 0;
 	data->wolf_x_accum.w = 0;
@@ -25,7 +25,7 @@ void START() {
 	THIS->lim_y = 160u;
 }
 
-void UPDATE() {
+void UPDATE(void) {
 	CUSTOM_DATA* data = (CUSTOM_DATA*) THIS->custom_data;
 	if(data->laughing) {
 		data->laughing -= 1 << delta_time;
@@ -62,5 +62,5 @@ void UPDATE() {
 	}
 }
 
-void DESTROY() {
+void DESTROY(void) {
 }

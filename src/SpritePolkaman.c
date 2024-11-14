@@ -6,13 +6,13 @@ UINT8 anim_horiz_flipped[] = {2, 4, 5};
 UINT8 anim_verti[] = {2, 2, 3};
 
 
-void START() {
+void START(void) {
 
 }
 
-void UPDATE() {
+void UPDATE(void) {
 
 }
 
-void DESTROY() {
+void DESTROY(void) {
 }

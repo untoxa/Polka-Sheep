@@ -12,7 +12,7 @@ typedef struct {
 	UINT8 sin;
 } CUSTOM_DATA;
 
-void START() {
+void START(void) {
 	CUSTOM_DATA* data = (CUSTOM_DATA*) THIS->custom_data;
 	data->x = THIS->x;
 	data->y = THIS->y;
@@ -21,7 +21,7 @@ void START() {
 	SetSpriteAnim(THIS, anim_idle_bubble, 6);
 }
 
-void UPDATE() {
+void UPDATE(void) {
 	CUSTOM_DATA* data = (CUSTOM_DATA*) THIS->custom_data;
 
 	THIS->x = data->x;
@@ -32,5 +32,5 @@ void UPDATE() {
 	THIS->y += COS(data->sin << 1) >> 6;
 }
 
-void DESTROY() {
+void DESTROY(void) {
 }

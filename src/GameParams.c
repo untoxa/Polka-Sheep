@@ -1,4 +1,4 @@
-#include <gb\gb.h>
+#include <gbdk/platform.h>
 
 const INT8 gravity = 23;
 const UINT8 max_energy = 5;

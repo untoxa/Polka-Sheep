@@ -1,9 +1,22 @@
+# Project name must not be empty or contain special characters or spaces
 PROJECT_NAME = PolkaSheep
 
-all: build_gb
+# Set platforms to build here, spaced separated. (These are in the separate Makefile.targets)
+# They can also be built/cleaned individually: "make gg" and "make gg-clean"
+# Possible are: gb gbc pocket megaduck sms gg
+#TARGETS=gb megaduck gg sms gbc
+TARGETS=gb gg
 
-N_BANKS = 8
+# Set build type: Release, Debug or DebugVerbose
+# BUILD_TYPE = Debug
 
-MUSIC_PLAYER = GBT_PLAYER
+# Builds all targets sequentially
+all: $(TARGETS)
 
-include $(ZGB_PATH)/src/MakefileCommon
+# Number of banks (must be a power of 2): A (Automatic), 2, 4, 8, 16, 32...
+N_BANKS = A
+
+# Default hardware sprites size: SPRITES_8x16(default) or SPRITES_8x8
+DEFAULT_SPRITES_SIZE = SPRITES_8x16
+
+include $(subst ',,$(subst \,/,'$(ZGB_PATH)'))/src/MakefileCommon

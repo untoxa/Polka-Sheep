@@ -8,7 +8,7 @@ DECLARE_VECTOR(lifes_y, 5);
 
 UINT8 anim_idle_life[] = {4, 0, 0, 0, 1};
 
-void START() {
+void START(void) {
 	UINT8 i;
 	UINT8 elem;
 
@@ -23,8 +23,8 @@ void START() {
 	SetSpriteAnim(THIS, anim_idle_life, 10);
 }
 
-void UPDATE() {
+void UPDATE(void) {
 }
 
-void DESTROY() {
+void DESTROY(void) {
 }

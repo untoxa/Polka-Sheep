@@ -9,16 +9,16 @@ _STATE(StateGameEnd)  \
 STATE_DEF_END
 
 #define SPRITES \
-_SPRITE_DMG(SpritePlayer,      player     ) \
-_SPRITE_DMG(SpriteCrosshair,   crossair   ) \
-_SPRITE_DMG(SpriteBird,        bird       ) \
-_SPRITE_DMG(SpriteWolf,        wolf       ) \
-_SPRITE_DMG(SpritePolkaman,    polkaman   ) \
-_SPRITE_DMG(SpriteLife,        life       ) \
-_SPRITE_DMG(SpritePlatform,    platform   ) \
-_SPRITE_DMG(SpriteBubble,      bubble     ) \
-_SPRITE_DMG(SpritePop,         pop        ) \
-_SPRITE_DMG(SpriteFriendSheep, friendsheep) \
+_SPRITE(SpritePlayer,      player,       NO_MIRROR) \
+_SPRITE(SpriteCrosshair,   crossair,     NO_MIRROR) \
+_SPRITE(SpriteBird,        bird,         V_MIRROR)  \
+_SPRITE(SpriteWolf,        wolf,       	 V_MIRROR)  \
+_SPRITE(SpritePolkaman,    polkaman,     NO_MIRROR) \
+_SPRITE(SpriteLife,        life,         NO_MIRROR) \
+_SPRITE(SpritePlatform,    platform,     NO_MIRROR) \
+_SPRITE(SpriteBubble,      bubble,       NO_MIRROR) \
+_SPRITE(SpritePop,         pop,          NO_MIRROR) \
+_SPRITE(SpriteFriendSheep, friendsheep,  NO_MIRROR) \
 SPRITE_DEF_END
 
 #include "ZGBMain_Init.h"

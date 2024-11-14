@@ -5,13 +5,13 @@
 UINT8 anim_friendsheep_idle[] = {2, 0, 1};
 Sprite* friendsheep_sprite = 0;
 
-void START() {
+void START(void) {
 	friendsheep_sprite = THIS;
 	SetSpriteAnim(THIS, anim_friendsheep_idle, 4);
 }
 
-void UPDATE() {
+void UPDATE(void) {
 }
 
-void DESTROY() {
+void DESTROY(void) {
 }

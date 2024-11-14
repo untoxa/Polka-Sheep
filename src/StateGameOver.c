@@ -13,7 +13,7 @@ IMPORT_MAP(wolf_gameover);
 
 DECLARE_MUSIC(polka_lose);
 
-void START() {
+void START(void) {
 	InitScroll(BANK(wolf_gameover), &wolf_gameover, 0, 0);
 	HIDE_WIN;
 
@@ -23,7 +23,7 @@ void START() {
 	PlayMusic(polka_lose, 0);
 }
 
-void UPDATE() {
+void UPDATE(void) {
 	if(previous_keys && !keys) {
 		SetState(StateMenu);
 	}

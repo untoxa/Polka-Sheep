@@ -13,7 +13,7 @@ typedef struct {
 	INT8 ang;
 } CUSTOM_DATA;
 
-void START() {
+void START(void) {
 	CUSTOM_DATA* data = (CUSTOM_DATA*) THIS->custom_data;
 	data->ang = (scroll_target->x < THIS->x) ? 128 :0;
 
@@ -21,7 +21,7 @@ void START() {
 	SetSpriteAnim(THIS, anim_flying, 13);
 }
 
-void UPDATE() {
+void UPDATE(void) {
 	CUSTOM_DATA* data = (CUSTOM_DATA*) THIS->custom_data;
 	INT16 prev_x = THIS->x;
 	
@@ -36,5 +36,5 @@ void UPDATE() {
 	}
 }
 
-void DESTROY() {
+void DESTROY(void) {
 }
