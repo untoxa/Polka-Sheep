@@ -5,7 +5,7 @@ PROJECT_NAME = PolkaSheep
 # They can also be built/cleaned individually: "make gg" and "make gg-clean"
 # Possible are: gb gbc pocket megaduck sms gg
 #TARGETS=gb megaduck gg sms gbc
-TARGETS=gb gg
+TARGETS=gb megaduck gg
 
 # Set build type: Release, Debug or DebugVerbose
 # BUILD_TYPE = Debug
