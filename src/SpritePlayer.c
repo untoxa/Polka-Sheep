@@ -57,14 +57,15 @@ INT16 inmunity = 0;
 const UINT8 HEART_TILE = 1;
 const UINT8 EMPTY_HEART_TILE = 2;
 void RefreshLife(void) BANKED {
+#ifdef INITENDO
 	UINT8 i;
-
 	for(i = 0; i != current_energy; ++i) {
 		set_win_tiles(10 + i, 1, 1, 1, &HEART_TILE);
 	}
 	for(; i != max_energy; ++i) {
 		set_win_tiles(10 + i, 1, 1, 1, &EMPTY_HEART_TILE);
 	}
+#endif
 }
 
 void ChangeState(SheepState next);

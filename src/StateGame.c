@@ -95,15 +95,17 @@ void START(void) {
 	scroll_target = SpriteManagerAdd(SpritePlayer, start_x << 3, ((start_y - 1) << 3) + 8);
 	InitScroll(level->bank, level->map, collisions, 0);
 
+#if defined(NINTENDO)
 	INIT_HUD(window);
 	RefreshLife();
 
 	INIT_FONT(font, PRINT_WIN);
 	PRINT_POS(0, 1);
 	Printf("Level %d", (UINT16)(current_level + 1));
-
-	DPRINT(6, 0, " DEBUG ");
-
+#elif defined(SEGA)
+	INIT_FONT(font, PRINT_BKG);
+	RefreshLife();
+#endif
 
 	countdown = 1024;
 	countdown_tick = -1; //Force first update
@@ -114,11 +116,8 @@ void START(void) {
 	game_state = PLAYING;
 
 	PlayMusic(polka_level1, 1);
-#ifdef NINTENDO
-	NR52_REG = 0x80; //Enables sound, you should always setup this first
-	NR51_REG = 0xFF; //Enables all channels (left and right)
-	NR50_REG = 0x77; //Max volume
-#endif
+
+	INIT_SOUND();
 }
 
 #define END_Y 85

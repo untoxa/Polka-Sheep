@@ -1,0 +1,1 @@
+-keep_palette_order -rel_paths -source_tileset tiles.png -entity_tileset meta/objects.png
